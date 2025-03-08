@@ -1,0 +1,45 @@
+/* Submenu */
+.dropdown-sub-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  background-color: #f5f7c8; /* สีพื้นหลังของ Submenu */
+  border: 1px solid #ddd; /* เส้นขอบ */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-sub-menu li {
+  white-space: nowrap;
+  position: relative;
+}
+
+/* ปรับเมนูให้แสดงถูกต้อง */
+.dropdown-sub-menu-menu:hover .dropdown-sub-menu {
+  display: block;
+}
+
+/* ปรับลิ้นชักลงของ Submenu */
+.dropdown-sub-menu .dropdown-sub-menu {
+  top: 0;
+  left: 100%;
+}
+
+/* ปรับสีของลิ้นชักลง */
+.dropdown-sub-menu-rotate-down {
+  color: #999; /* สีของลิ้นชักลง */
+}
+
+/* ลิ้นชักที่เอียงลง */
+.dropdown-sub-menu-rotate-down {
+  transform: rotate(-90deg);
+  display: inline-block;
+}
+
+.sub-menu li:hover > .sub-menu {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 100%;
+}
