@@ -1,18 +1,25 @@
 "use client";
 import React, { FormEvent } from "react";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import "../../../../../../public/assets/css/common.css";
+import { signIn } from "next-auth/react";
 
 const PageLoginContent = () => {
-  const [emailHelper, setEmailHelper] = React.useState("");
+  const [userHelper, setUserNameHelper] = React.useState("");
   const [passwordHelper, setPasswordHelper] = React.useState("");
   const [directAppKey, setDirectAppKey] = React.useState("");
   const router = useRouter();
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
+    const signOk = await signIn("credentials",{
+      Username: userHelper,
+      Password: passwordHelper,
+      redirect:false
+    });
+    console.log(signOk)
   };
 
   return (
@@ -43,6 +50,9 @@ const PageLoginContent = () => {
               type="text"
               placeholder={"User name"}
               className="form-input ps-10 placeholder:text-white-dark"
+              onChange={(e:any) => {
+                setUserNameHelper(e.target.value)
+              }}
             />
           </div>
         </div>
@@ -54,6 +64,9 @@ const PageLoginContent = () => {
               type="password"
               placeholder={"Password"}
               className="form-input ps-10 placeholder:text-white-dark"
+              onChange={(e:any) => {
+                setPasswordHelper(e.target.value)
+              }}
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
                   handleSubmit(e);

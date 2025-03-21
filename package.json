@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 35100",
+    "dev": "next dev -p 35200",
     "build": "next build",
     "start": "next start -p 35010",
     "lint": "next lint"
@@ -38,6 +38,7 @@
     "highlight.js": "^11.7.0",
     "mantine-datatable": "^7.11.2",
     "next": "14.2.15",
+    "next-auth": "^4.24.11",
     "node-rsa": "^1.1.1",
     "react": "^18",
     "react-animate-height": "^3.1.0",

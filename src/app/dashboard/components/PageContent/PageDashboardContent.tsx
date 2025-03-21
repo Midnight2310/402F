@@ -1,15 +1,24 @@
 "use client";
-import React, { FormEvent } from "react";
-import { useRouter } from "next/navigation";
+import React, { useContext } from "react";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import "../../../../../public/assets/css/common.css";
+import LoadingContext from "@/app/ContextPovider/LoadingContext";
+import { useDataContext } from "@/app/ContextPovider/dataContext";
 
 const PageDashboardContent = () => {
-  const router = useRouter();
+  // const router = useRouter();
+  const loading = useContext(LoadingContext);
+  const { dataContext, setDataContext } = useDataContext();
 
-  const handleSubmit = async (e: any) => {
+const handleSubmit = async (e: any) => {
     e.preventDefault();
+    console.log(dataContext);
+    setDataContext({
+      ...dataContext,
+      studentID:"65054924"
+    })
+    loading.showLoading(true);
   };
 
   return (

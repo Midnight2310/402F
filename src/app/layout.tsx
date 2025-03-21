@@ -1,17 +1,26 @@
 import React from "react";
 import "../../public/assets/css/common.css";
+import { LoadingContextProvider } from "./ContextPovider/LoadingContext";
+import { DataContextProvider } from "./ContextPovider/dataContext";
+
 
 const AppLayout = async ({
   children,
-  params,
+
 }: {
   children: React.ReactNode;
-  params: any;
+
 }) => {
   return (
     <html>
       <head></head>
-      <body>{children}</body>
+      <body>
+        <DataContextProvider>
+          <LoadingContextProvider>
+            {children}
+          </LoadingContextProvider>
+        </DataContextProvider>
+      </body>
     </html>
   );
 };
